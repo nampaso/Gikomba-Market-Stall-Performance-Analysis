@@ -1,0 +1,27 @@
+# Task 3 Implementation
+def classify_day(amount, average):
+    """Classifies a daily sales amount relative to the overall average sales.
+
+    Args:
+        amount (float or int): The daily sales figure to evaluate.
+        average (float or int): The baseline average sales figure.
+
+    Returns:
+        str: 'Strong' if > 20% above average, 'Weak' if < 20% below average, else 'Normal'.
+    """
+    if amount > (1.20 * average):
+        return "Strong"
+    elif amount < (0.80 * average):
+        return "Weak"
+    else:
+        return "Normal"
+
+classification_counts = {"Strong": 0, "Normal": 0, "Weak": 0}
+
+for amount in daily_sales:
+    category = classify_day(amount, avg_sales)
+    classification_counts[category] += 1
+
+print("Daily Sales Classifications:")
+for category, count in classification_counts.items():
+    print(f"  {category}: {count} day(s)")
