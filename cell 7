@@ -1,0 +1,42 @@
+# Task 4 Implementation
+weekday_sales = [daily_sales[i] for i in range(len(daily_sales)) if days[i] not in ["Sat", "Sun"]]
+weekend_sales = [daily_sales[i] for i in range(len(daily_sales)) if days[i] in ["Sat", "Sun"]]
+
+avg_weekday = sum(weekday_sales) / len(weekday_sales)
+avg_weekend = sum(weekend_sales) / len(weekend_sales)
+
+weekend_vs_weekday_pct = ((avg_weekend - avg_weekday) / avg_weekday) * 100
+
+print(f"Average Weekday Sales: KES {avg_weekday:,.2f}")
+print(f"Average Weekend Sales: KES {avg_weekend:,.2f}")
+print(f"Weekend Premium over Weekday: {weekend_vs_weekday_pct:.2f}%")
+# Task 5 Implementation
+def check_stock_and_margins(stock_dict):
+    """Audits stock inventory for reorder status and computes gross profit margins.
+
+    Args:
+        stock_dict (dict): Dictionary containing item stock parameters (qty, reorder, cost, price).
+
+    Returns:
+        tuple: (reorder_list, margins_dict)
+            - reorder_list (list): Product names at or below reorder levels.
+            - margins_dict (dict): Product names mapped to their gross margin percentage.
+    """
+    reorder_list = []
+    margins_dict = {}
+
+    for item, details in stock_dict.items():
+        if details["qty"] <= details["reorder"]:
+            reorder_list.append(item)
+        
+        margin_pct = ((details["price"] - details["cost"]) / details["price"]) * 100
+        margins_dict[item] = margin_pct
+
+    return reorder_list, margins_dict
+
+reorder_needed, product_margins = check_stock_and_margins(stock)
+
+print("Products Needing Reorder:", reorder_needed)
+print("\nProduct Gross Margins:")
+for item, margin in product_margins.items():
+    print(f"  {item}: {margin:.2f}%")
