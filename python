@@ -1,0 +1,13 @@
+# Task 0: Dataset Definition
+daily_sales = [2300, 1950, 2800, 2100, 3600, 5200, 4100,
+               2500, 2200, 3100, 2400, 3900, 5600, 4700]   # 14 days, KES
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] * 2
+
+# qty = kg in stock, reorder = reorder level (kg), cost/price = KES per kg
+stock = {
+    "Tomatoes": {"qty": 18, "reorder": 25, "cost": 60, "price": 90},
+    "Onions":   {"qty": 40, "reorder": 20, "cost": 70, "price": 100},
+    "Sukuma":   {"qty": 9,  "reorder": 15, "cost": 30, "price": 50},
+    "Potatoes": {"qty": 55, "reorder": 30, "cost": 50, "price": 75},
+    "Avocado":  {"qty": 12, "reorder": 10, "cost": 80, "price": 140},
+}
