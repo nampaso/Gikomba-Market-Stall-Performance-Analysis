@@ -1,0 +1,20 @@
+# Task 1 Implementation
+total_sales = sum(daily_sales)
+avg_sales = total_sales / len(daily_sales)
+
+max_sales = max(daily_sales)
+min_sales = min(daily_sales)
+
+best_day_idx = daily_sales.index(max_sales)
+worst_day_idx = daily_sales.index(min_sales)
+
+best_day_name = days[best_day_idx]
+best_day_week = (best_day_idx // 7) + 1
+
+worst_day_name = days[worst_day_idx]
+worst_day_week = (worst_day_idx // 7) + 1
+
+print(f"Total Sales: KES {total_sales:,.2f}")
+print(f"Average Daily Sales: KES {avg_sales:,.2f}")
+print(f"Best Day: KES {max_sales:,.2f} ({best_day_name}, Week {best_day_week})")
+print(f"Worst Day: KES {min_sales:,.2f} ({worst_day_name}, Week {worst_day_week})")
